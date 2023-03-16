@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mean-crud-front
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mean-crud-front
+  template:
+    metadata:
+      labels:
+        app: mean-crud-front
+    spec:
+      containers:
+        - name: mean-crud-front
+          image: sheguey888/mean-crud-front
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
